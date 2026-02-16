@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#070812" />
+  <title>آکادمی هولدم | آموزش پوکر تگزاس هولدم از مبتدی تا تیر خلاص</title>
+  <meta name="description" content="آکادمی هولدم: آموزش کامل پوکر تگزاس هولدم از مبتدی تا حرفه‌ای + سطح الیت + تیر خلاص. فارسی، موبایل‌فرندلی، درس به درس." />
+
+  <!-- فونت اختیاری: (اگر نخواستی، بعداً حذفش می‌کنیم) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+  <!-- فایل‌های پروژه -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <!-- نوار بالا (موبایل) -->
+  <header class="topbar" role="banner">
+    <button class="iconBtn" id="menuBtn" aria-label="باز کردن منو" type="button">☰</button>
+
+    <div class="brand">
+      <div class="logo" aria-hidden="true">♠️</div>
+      <div class="brandText">
+        <b>آکادمی هولدم</b>
+        <span>از مبتدی تا تیر خلاص 😈</span>
+      </div>
+    </div>
+
+    <button class="iconBtn" id="focusSearchBtn" aria-label="جستجو" type="button">🔎</button>
+  </header>
+
+  <!-- لایه‌های پس‌زمینه (حتماً pointer-events: none در CSS تا کلیک خراب نشه) -->
+  <div class="bgGlow" aria-hidden="true"></div>
+  <div class="bgScan" aria-hidden="true"></div>
+
+  <div class="layout">
+    <!-- سایدبار -->
+    <aside class="sidebar" id="sidebar" aria-label="منوی سایت">
+      <div class="sidebarTop">
+        <div class="searchWrap">
+          <input id="searchInput" type="search" placeholder="جستجو داخل درس‌ها… مثلا: رنج، C-bet، تیلت، ICM" autocomplete="off" />
+          <button class="miniBtn" id="searchBtn" type="button">جستجو</button>
+          <button class="miniBtn danger" id="clearSearchBtn" type="button">پاک</button>
+        </div>
+
+        <div class="sideCard">
+          <div class="sideCardTitle">تلگرام ما 📌</div>
+          <a class="tgLink" href="https://t.me/HoldemClubPoker" target="_blank" rel="noopener">
+            @HoldemClubPoker
+          </a>
+          <div class="sideHint">داخل تلگرام هم درس و نکته و مثال می‌ریزیم ✅</div>
+        </div>
+
+        <div class="sideCard">
+          <div class="sideCardTitle">میانبرها ⚡</div>
+          <ul class="miniList">
+            <li><b>/</b> رفتن روی سرچ</li>
+            <li><b>Esc</b> بستن منو (موبایل)</li>
+            <li><b>Alt + 1..9</b> پرش سریع بخش‌ها</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ناوبری اصلی -->
+      <nav class="nav" id="nav">
+        <div class="navGroup">مسیر یادگیری</div>
+
+        <!-- هرکدوم data-target به سکشن مربوط وصل میشه -->
+        <button class="navItem active" data-target="sec-home" type="button">
+          <span class="navIco">🏁</span>
+          <span class="navTxt">
+            <b>شروع و نقشه راه</b>
+            <small>چطور سریع حرفه‌ای شی</small>
+          </span>
+        </button>
+
+        <button class="navItem" data-target="sec-rules" type="button">
+          <span class="navIco">📌</span>
+          <span class="navTxt"><b>قوانین کامل</b><small>صفر تا صد</small></span>
+        </button>
+
+        <button class="navItem" data-target="sec-rankings" type="button">
+          <span class="navIco">🂡</span>
+          <span class="navTxt"><b>رتبه دست‌ها</b><small>با مثال و دام‌ها</small></span>
+        </button>
+
+        <button class="navItem" data-target="sec-positions" type="button">
+          <span class="navIco">🪑</span>
+          <span class="navTxt"><b>پوزیشن‌ها</b><small>BTN چرا امپراتوره</small></span>
+        </button>
+
+        <button class="navItem" data-target="sec-glossary" type="button">
+          <span class="navIco">📚</span>
+          <span class="navTxt"><b>اصطلاحات و واژه‌نامه</b><small>ساده + حرفه‌ای</small></span>
+        </button>
+
+        <button class="navItem" data-target="sec-roadmap" type="button">
+          <span class="navIco">🧭</span>
+          <span class="navTxt"><b>از مبتدی تا حرفه‌ای</b><small>مرحله به مرحله</small></span>
+        </button>
+
+        <button class="navItem" data-target="sec-preflop" type="button">
+          <span class="navIco">🧠</span>
+          <span class="navTxt"><b>پری‌فلاپ</b><small>رنج، 3bet، لیمپ</small></span>
+        </button>
+
+        <button class="navItem" data-target="sec-postflop" type="button">
+          <span class="navIco">🎯</span>
+          <span class="navTxt"><b>پست‌فلاپ</b><small>Value/Bluff/Plan</small></span>
+        </button>
+
+        <button class="navItem" data-target="sec-player-types" type="button">
+          <span class="navIco">👥</span>
+          <span class="navTxt"><b>تیپ‌های حریف</b><small>Exploit واقعی</small></span>
+        </button>
+
+        <button class="navItem" data-target="sec-mental" type="button">
+          <span class="navIco">🧘</span>
+          <span class="navTxt"><b>ذهن و سرمایه</b><small>Tilt / Bankroll</small></span>
+        </button>
+
+        <div class="navGroup">سطح الیت 😈</div>
+
+        <button class="navItem" data-target="sec-elite" type="button">
+          <span class="navIco">🦾</span>
+          <span class="navTxt"><b>Elite Level</b><small>EV / MDF / تصمیم</small></span>
+        </button>
+
+        <button class="navItem" data-target="sec-solver" type="button">
+          <span class="navIco">🤖</span>
+          <span class="navTxt"><b>Solver Thinking</b><small>منطق تعادل</small></span>
+        </button>
+
+        <button class="navItem" data-target="sec-icm" type="button">
+          <span class="navIco">🏆</span>
+          <span class="navTxt"><b>تورنامنت + ICM</b><small>Bubble / Risk Premium</small></span>
+        </button>
+
+        <button class="navItem" data-target="sec-shortstack" type="button">
+          <span class="navIco">💀</span>
+          <span class="navTxt"><b>Short Stack</b><small>Push/Fold / Rejam</small></span>
+        </button>
+
+        <button class="navItem" data-target="sec-live-tells" type="button">
+          <span class="navIco">👁️</span>
+          <span class="navTxt"><b>Live Tells</b><small>نشانه‌های حضوری</small></span>
+        </button>
+
+        <button class="navItem" data-target="sec-review" type="button">
+          <span class="navIco">📈</span>
+          <span class="navTxt"><b>Hand Review</b><small>سیستم تحلیل دست</small></span>
+        </button>
+
+        <div class="navGroup">پایان نهایی</div>
+
+        <button class="navItem finalShot" data-target="sec-final-shot" type="button">
+          <span class="navIco">🎯</span>
+          <span class="navTxt"><b>تیر خلاص</b><small>قانون‌های آخر</small></span>
+        </button>
+      </nav>
+
+      <div class="sidebarFooter">
+        <div class="tinyNote">© آکادمی هولدم — نسخه آفلاین/گیت‌هاب پیجز ✅</div>
+      </div>
+    </aside>
+
+    <!-- محتوای اصلی -->
+    <main class="main" id="main" role="main">
+      <div class="container">
+        <!-- HERO -->
+        <section class="hero" id="sec-home">
+          <h1>آکادمی هولدم — آموزش پوکر تگزاس هولدم از صفر تا تیر خلاص 😈♠️</h1>
+          <p>
+            اینجا فقط قوانین نیست. اینجا <b>تصمیم‌سازی</b> یاد می‌گیری:
+            رنج، پوزیشن، پلن ۳ خیابون، exploit، ذهنیت حرفه‌ای، و سطح الیت.
+          </p>
+
+          <div class="heroBtns">
+            <button class="btn primary" data-jump="sec-rules" type="button">شروع از قوانین</button>
+            <button class="btn" data-jump="sec-roadmap" type="button">مسیر مبتدی تا حرفه‌ای</button>
+            <button class="btn ghost" id="zenBtn" type="button">حالت Zen</button>
+          </div>
+
+          <div class="heroCard">
+            <div class="heroCardRow">
+              <div class="pill">✅ موبایل‌فرندلی</div>
+              <div class="pill">✅ درس‌محور</div>
+              <div class="pill">✅ الیت/ICM/Solver</div>
+              <a class="pill pillLink" href="https://t.me/HoldemClubPoker" target="_blank" rel="noopener">
+                تلگرام: @HoldemClubPoker
+              </a>
+            </div>
+            <div class="heroHint">
+              نکته: روی موبایل از منو ☰ استفاده کن. کلیک‌ها این نسخه ۱۰۰٪ سالمه (هیچ لایه‌ای روی دکمه‌ها نمی‌افته).
+            </div>
+          </div>
+        </section>
+
+        <!-- ✅ بخش‌ها (فعلاً اسکلت + متن کوتاه). متن‌های سنگین رو در app.js می‌ریزیم -->
+        <section class="contentSection" id="sec-rules">
+          <h2>قوانین کامل 📌</h2>
+          <div class="contentBox" data-content="rules">
+            <p class="muted">محتوای کامل قوانین (Preflop/Flop/Turn/River، اکشن‌ها، Blind، Showdown، Side Pot…) در فایل <b>app.js</b> تزریق می‌شود.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-rankings">
+          <h2>رتبه دست‌ها 🂡</h2>
+          <div class="contentBox" data-content="rankings">
+            <p class="muted">رتبه‌بندی کامل دست‌ها + مثال + اشتباهات رایج در <b>app.js</b> می‌آید.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-positions">
+          <h2>پوزیشن‌ها 🪑</h2>
+          <div class="contentBox" data-content="positions">
+            <p class="muted">UTG/MP/CO/BTN/SB/BB و قوانین طلایی پوزیشن در <b>app.js</b> قرار می‌گیرد.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-glossary">
+          <h2>اصطلاحات و واژه‌نامه 📚</h2>
+          <div class="contentBox" data-content="glossary">
+            <p class="muted">Range / EV / MDF / ICM / Blocker / C-bet و… به زبان ساده و حرفه‌ای در <b>app.js</b>.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-roadmap">
+          <h2>از مبتدی تا حرفه‌ای 🧭</h2>
+          <div class="contentBox" data-content="roadmap">
+            <p class="muted">Level 1 تا Level 4 + تمرین‌ها در <b>app.js</b> تکمیل می‌شود.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-preflop">
+          <h2>پری‌فلاپ 🧠</h2>
+          <div class="contentBox" data-content="preflop">
+            <p class="muted">لیمپ، رِیز استاندارد، 3bet، ساخت رنج، لیک‌ها… در <b>app.js</b>.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-postflop">
+          <h2>پست‌فلاپ 🎯</h2>
+          <div class="contentBox" data-content="postflop">
+            <p class="muted">Value/Bluff/Plan، بورد خشک/خیس، پلن ترن/ریور… در <b>app.js</b>.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-player-types">
+          <h2>تیپ‌های حریف 👥</h2>
+          <div class="contentBox" data-content="playerTypes">
+            <p class="muted">Calling Station / Nit / Aggro / Maniac + روش exploit در <b>app.js</b>.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-mental">
+          <h2>ذهن و سرمایه 🧘💰</h2>
+          <div class="contentBox" data-content="mental">
+            <p class="muted">Tilt، Stop-loss، Bankroll mindset و… در <b>app.js</b>.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-elite">
+          <h2>ELITE LEVEL 🦾</h2>
+          <div class="contentBox" data-content="elite">
+            <p class="muted">EV، Implied/Reverse Implied، MDF، Decision Tree، Meta Game… در <b>app.js</b>.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-solver">
+          <h2>Solver Thinking 🤖</h2>
+          <div class="contentBox" data-content="solver">
+            <p class="muted">Mixed Strategy، Range Splitting، منطق تعادل + Adapt در <b>app.js</b>.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-icm">
+          <h2>تورنامنت + ICM 🏆</h2>
+          <div class="contentBox" data-content="icm">
+            <p class="muted">Bubble Pressure، Risk Premium، Final Table… در <b>app.js</b>.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-shortstack">
+          <h2>Short Stack Warfare 💀</h2>
+          <div class="contentBox" data-content="shortstack">
+            <p class="muted">Push/Fold، Rejam، Fold Equity… در <b>app.js</b>.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-live-tells">
+          <h2>Live Tells 👁️</h2>
+          <div class="contentBox" data-content="livetells">
+            <p class="muted">Timing، Pattern، نشانه‌های حضوری (با احتیاط) در <b>app.js</b>.</p>
+          </div>
+        </section>
+
+        <section class="contentSection" id="sec-review">
+          <h2>Hand Review System 📈</h2>
+          <div class="contentBox" data-content="review">
+            <p class="muted">Framework تحلیل دست، Leak Detection، Improvement Loop… در <b>app.js</b>.</p>
+          </div>
+        </section>
+
+        <section class="contentSection final" id="sec-final-shot">
+          <h2>تیر خلاص 🎯💀</h2>
+          <div class="contentBox" data-content="finalShot">
+            <p class="muted">قانون‌های نهایی: جدایی نتیجه از تصمیم، آرامش خطرناک، قانون ۳ ثانیه… در <b>app.js</b>.</p>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <div class="footerRow">
+            <div>© آکادمی هولدم — ساخته شده برای موبایل و گیت‌هاب پیجز ✅</div>
+            <a href="https://t.me/HoldemClubPoker" target="_blank" rel="noopener" class="footerLink">
+              تلگرام: @HoldemClubPoker
+            </a>
+          </div>
+          <div class="footerNote">
+            اگر چیزی لود نشد، یعنی هنوز <b>styles.css</b> و <b>app.js</b> رو نذاشتیم. الان می‌ریم سراغشون 😈
+          </div>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <!-- JS -->
+  <script src="./app.js"></script>
+</body>
+</html>
